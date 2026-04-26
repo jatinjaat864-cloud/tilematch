@@ -1,0 +1,22 @@
+{
+  "overview": "A pattern-matching puzzle game with progressive levels, score tracking, and stat persistence. Players match tiles to clear the board and advance through increasingly difficult levels.",
+  "features": [
+    "Pattern-matching tile game board (4x4 and 5x5 grids)",
+    "Progressive level system with increasing difficulty",
+    "Move counter and score tracking during gameplay",
+    "Level complete and game over screens",
+    "Persistent stats: best score, highest level, total games played",
+    "Home screen, pause overlay, and full game flow navigation",
+    "Responsive layout for desktop and mobile"
+  ],
+  "category": "game",
+  "tags": [
+    "puzzle",
+    "pattern-matching",
+    "tile-matching",
+    "game",
+    "levels",
+    "score-tracking"
+  ],
+  "last_updated": "2026-04-26T14:53:25.163Z"
+}

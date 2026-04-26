@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "General Sans";
+    --font-body: "DM Sans";
+    --font-mono: monospace;
+    --radius: 1.5rem;
+
+    --background: 0.97 0 0;
+    --foreground: 0.18 0 0;
+    --card: 0.99 0 0;
+    --card-foreground: 0.15 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.15 0 0;
+
+    --primary: 0.62 0.18 210;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.74 0.15 90;
+    --secondary-foreground: 0.15 0 0;
+    --muted: 0.92 0 0;
+    --muted-foreground: 0.5 0 0;
+
+    --accent: 0.7 0.22 325;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0 0;
+    --input: 0.9 0 0;
+    --ring: 0.62 0.18 210;
+
+    --chart-1: 0.62 0.18 210;
+    --chart-2: 0.74 0.15 90;
+    --chart-3: 0.7 0.22 325;
+    --chart-4: 0.65 0.15 140;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.62 0.18 210;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.7 0.22 325;
+    --sidebar-accent-foreground: 0.98 0 0;
+    --sidebar-border: 0.88 0 0;
+    --sidebar-ring: 0.62 0.18 210;
+  }
+
+  .dark {
+    --background: 0.1 0.02 240;
+    --foreground: 0.94 0 0;
+    --card: 0.15 0.02 240;
+    --card-foreground: 0.94 0 0;
+    --popover: 0.18 0.02 240;
+    --popover-foreground: 0.94 0 0;
+
+    --primary: 0.66 0.19 210;
+    --primary-foreground: 0.1 0.02 240;
+
+    --secondary: 0.78 0.16 90;
+    --secondary-foreground: 0.1 0.02 240;
+    --muted: 0.2 0.02 240;
+    --muted-foreground: 0.6 0 0;
+
+    --accent: 0.75 0.24 325;
+    --accent-foreground: 0.1 0.02 240;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.1 0.02 240;
+
+    --border: 0.22 0.03 240;
+    --input: 0.22 0.03 240;
+    --ring: 0.66 0.19 210;
+
+    --chart-1: 0.66 0.19 210;
+    --chart-2: 0.78 0.16 90;
+    --chart-3: 0.75 0.24 325;
+    --chart-4: 0.68 0.16 140;
+    --chart-5: 0.72 0.2 70;
+
+    --sidebar: 0.15 0.02 240;
+    --sidebar-foreground: 0.94 0 0;
+    --sidebar-primary: 0.66 0.19 210;
+    --sidebar-primary-foreground: 0.1 0.02 240;
+    --sidebar-accent: 0.75 0.24 325;
+    --sidebar-accent-foreground: 0.1 0.02 240;
+    --sidebar-border: 0.22 0.03 240;
+    --sidebar-ring: 0.66 0.19 210;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .transition-game {
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Tile colour variants via CSS custom properties */
+  .tile-cyan {
+    --tile-bg: oklch(0.22 0.06 210);
+    --tile-border: oklch(0.66 0.19 210 / 0.6);
+    --tile-glow: oklch(0.66 0.19 210 / 0.35);
+    --tile-icon: oklch(0.75 0.2 210);
+  }
+  .tile-amber {
+    --tile-bg: oklch(0.2 0.05 90);
+    --tile-border: oklch(0.78 0.16 90 / 0.6);
+    --tile-glow: oklch(0.78 0.16 90 / 0.35);
+    --tile-icon: oklch(0.82 0.17 90);
+  }
+  .tile-magenta {
+    --tile-bg: oklch(0.2 0.06 325);
+    --tile-border: oklch(0.75 0.24 325 / 0.6);
+    --tile-glow: oklch(0.75 0.24 325 / 0.35);
+    --tile-icon: oklch(0.78 0.26 325);
+  }
+  .tile-teal {
+    --tile-bg: oklch(0.2 0.06 175);
+    --tile-border: oklch(0.68 0.18 175 / 0.6);
+    --tile-glow: oklch(0.68 0.18 175 / 0.35);
+    --tile-icon: oklch(0.72 0.19 175);
+  }
+
+  .tile-base {
+    background: var(--tile-bg);
+    border: 2px solid var(--tile-border);
+  }
+  .tile-flipped {
+    background: var(--tile-bg);
+    border: 2px solid var(--tile-icon);
+    box-shadow: 0 0 16px var(--tile-glow), 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  .tile-matched {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .tile-wrong {
+    background: var(--tile-bg);
+    border: 2px solid oklch(0.65 0.19 22 / 0.8);
+    box-shadow: 0 0 12px oklch(0.65 0.19 22 / 0.4);
+  }
+  .tile-icon-color {
+    color: var(--tile-icon);
+  }
+
+  .shadow-tile {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  .shadow-match {
+    box-shadow: 0 0 24px oklch(0.66 0.19 210 / 0.6);
+  }
+
+  /* Game board dark gradient background */
+  .game-bg {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      oklch(0.16 0.04 240) 0%,
+      oklch(0.1 0.02 240) 60%
+    );
+  }
+
+  /* Neon text glow */
+  .text-glow-primary {
+    text-shadow: 0 0 12px oklch(0.66 0.19 210 / 0.7);
+  }
+  .text-glow-secondary {
+    text-shadow: 0 0 12px oklch(0.78 0.16 90 / 0.7);
+  }
+  .text-glow-accent {
+    text-shadow: 0 0 12px oklch(0.75 0.24 325 / 0.7);
+  }
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400 500 700;
+  font-display: swap;
+}

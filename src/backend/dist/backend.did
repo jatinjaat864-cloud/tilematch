@@ -1,0 +1,22 @@
+type UserStats = 
+ record {
+   bestScore: nat;
+   highestLevel: nat;
+   totalGames: nat;
+   totalScore: nat;
+   userId: UserId;
+ };
+type UserId = principal;
+type Timestamp = int;
+type GameResult = 
+ record {
+   level: nat;
+   score: nat;
+   timestamp: Timestamp;
+   userId: UserId;
+ };
+service : {
+  getMyHistory: () -> (vec GameResult) query;
+  getMyStats: () -> (opt UserStats) query;
+  submitScore: (score: nat, level: nat) -> ();
+}
